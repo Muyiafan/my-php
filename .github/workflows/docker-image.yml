@@ -18,3 +18,5 @@ jobs:
       run: echo "${{ secrets.DOCKER_HUB_KEY }}" | docker login -u ${{ secrets.DOCKER_HUB_NAME }} --password-stdin
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag muyiafan/my-php && docker push muyiafan/my-php
+    - name: Logout Docker
+      run: docker logout
